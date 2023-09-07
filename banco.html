@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<script>
+    let din = 100;
+    let ops = [];
+    let vlt = [];
+    let ext = [];
+    let ult = [];
+    let chk = [];
+
+    function testsenha(senhaCorreta) {
+        var senha = prompt("Por favor, digite sua senha:");
+        if (senha === senhaCorreta) {
+            alert("Senha correta!");
+            return true;
+        } else {
+            alert("Senha incorreta!");
+            return false;
+        }
+    }
+
+    function Testnumb(mensagem) {
+        while (true) {
+            var tst = prompt(mensagem)
+            var nbm = parseInt(tst)
+            if (!isNaN(nbm)) {
+                return nbm;
+            }
+        }
+    }
+
+    var nome = prompt("digite seu nome");
+    alert(`Olá ${nome} é um prazer ter você por aqui!.`);
+
+    while (vlt == 0) {
+        ops = parseInt(prompt("1)Saldo\n2)Extrato\n3)Saque\n4)Depósito\n5)Transferência\n6)Sair"));
+        switch (ops) {
+            case 1:
+                if (testsenha("3589")) {
+                    vlt = parseInt(prompt(`Seu saldo é igual a:${din}\n0)Sair`));
+                }
+                break;
+            case 2:
+                if (testsenha("3589")) {
+                    ext.push(din)
+
+                    vlt = parseInt(prompt(`Extrato da conta:\n ${ext}\n0)Sair`));
+                }
+                break;
+            case 3:
+                if (testsenha("3589")) {
+                    let saq = parseFloat(prompt(`Digite o valor que você quer sacar`));
+
+                    if (saq < 0) {
+                        alert("Operação não autorizada");
+                    } else if (din - saq < 0) {
+                        alert("Operação não autorizada");
+                    } else {
+                        din -= saq;
+                        alert(`Seu saque de: ${saq}R$ foi efetuado\nSaldo atual: ${din}`);
+                    }
+                }
+                break;
+            case 4:
+                if (testsenha("3589")) {
+                    let dps = parseFloat(prompt(`Digite o valor que você quer depositar`));
+
+                    if (dps > 0) {
+                        din += dps
+                        alert(`Seu deposito de: ${dps}R$ foi efetuado\nSaldo atual: ${din}`);
+                    } else {
+                        alert("Operação não autorizada");
+                    }
+                }
+
+                break;
+            case 5:
+                if (testsenha("3589")) {
+                    var cont = Testnumb("Digite a conta para transferencia");
+                    var tnf = Testnumb("Digite o valor para transferencia");
+                    if (tnf < 0)
+                        alert("Operação não autorizada")
+
+                    else if (din - tnf < 0) {
+                        alert("Operação não autorizada");
+
+                    } else {
+                        din -= tnf;
+                        alert(`Transferencia de ${tnf} efetuada para a conta ${cont}\nSaldo atual: ${din}`)
+                    }
+                    break;
+                }
+                    case 6:
+                alert(`${nome}, foi um prazer ter você por aqui!`);
+                break;
+            }
+        }
+
+    
+</script>
